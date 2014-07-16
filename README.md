@@ -1,11 +1,14 @@
 # mac-dev-box
+## Introduction
 I want to automate my Mac OS X Mavericks setup, because you never know when [it might crash](https://www.youtube.com/watch?v=x_ppg054OR0).
+After buying my MBP I have started a manual [logbook](https://github.com/StefanScherer/logbook/blob/master/Install-MacBookPro.md) what I have installed. But using Vagrant for a long time I know there must be a better way.
 
 So I try my automation script in a Vagrant environment. I'm using just a simple shell provider for these reasons:
 
 * learn how to automate some steps (like install a .dmg file)
 * have a provision script that could be loaded from HTTP and executed on a real MBP.
 
+## What others did
 But before you ask, I also know [BOXEN](https://boxen.github.com):
 
     QUIT WORRYING ABOUT YOUR TOOLS.
