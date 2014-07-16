@@ -46,7 +46,7 @@ cp /your/already/downloaded/commandline.dmg resources/command_line_tools_for_osx
 vagrant up
 ```
 
-## Time safer
+## Time saver
 To speed up the development of such a provision script, I have switched from the 
 [vagrant-vbox-snapshot](https://github.com/dergachev/vagrant-vbox-snapshot) plugin to [vagrant-multiprovider-snap](https://github.com/scalefactory/vagrant-multiprovider-snap).
 
