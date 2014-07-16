@@ -11,16 +11,13 @@ if [ $? -gt 0 ]; then
     sleep 5
     hdiutil detach /dev/disk1s2
   else
-    echo "You have to download the Command Line Developer Tools once manually with"
-    echo ""
-    echo "    xcode-select --install"
-    echo ""
-    echo "and copy them to vagrant shared folder"
-    echo ""
-    echo "    /vagrant/resources/command_line_tools_for_osx_mavericks_april_2014.dmg"
-    echo ""
-    echo "Then run vagrant provision again. I apologize for any inconvenience."
-    exit 10
+    echo "Downloading command_line_tools_for_osx_mavericks_april_2014"
+    curl -O -L http://swcdn.apple.com/content/downloads/42/47/031-00536/0e3xru4xatuj4v9wb0y113nirfvnz34v8d/CLTools_Executables.pkg
+    curl -O -L http://swcdn.apple.com/content/downloads/42/47/031-00536/0e3xru4xatuj4v9wb0y113nirfvnz34v8d/MacOSX10_9_SDK.pkg
+    sudo installer -verbose -pkg "CLTools_Executables.pkg" -target /
+    sudo installer -verbose -pkg "MacOSX10_9_SDK.pkg" -target /
+    rm CLTools_Executables.pkg
+    rm MacOSX10_9_SDK.pkg
   fi
 fi
 

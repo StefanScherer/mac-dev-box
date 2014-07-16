@@ -12,7 +12,7 @@ So I try my automation script in a Vagrant environment. I'm using just a simple 
 But before you ask, I also know [BOXEN](https://boxen.github.com):
 
     QUIT WORRYING ABOUT YOUR TOOLS.
-    Automate the pain out of your development environment. 
+    Automate the pain out of your development environment.
     Boxen installs your dependencies so you can focus on getting things done.
 
 But they also have to do the Xcode Command Line Tool download in a [semi automated way](https://github.com/boxen/boxen-web/commit/b26abd0d681129eba0b5f46ed43110d873d8fdc2).
@@ -50,16 +50,15 @@ make vmware/osx109
 vagrant box add osx109 box/vmware/osx109-nocm.box
 ```
 
-## Xcode Developer Tools
-You have to download the Xcode Command Line Tools manually, because the direct link responds only with HTTP 403 forbidden. So, download Xcode Command Line Tools from [Downloads for Apple Developers](http://developer.apple.com/downloads/) or use the `xcode-select --install` command if you don't have an Apple Developer ID.
+## Xcode Command Line Tools
+The provision script takes care to install the Xcode Command Line Tools in an unattended way.
+Normally, you have to download the Xcode Command Line Tools manually. Your normally download Xcode Command Line Tools from [Downloads for Apple Developers](http://developer.apple.com/downloads/) or use the `xcode-select --install` command if you don't have an Apple Developer ID. But you only need this information to get a different version.
 
-These are my current steps to build the mac-dev-box with the pre-downloaded dmg file:
+These are my current steps to build the mac-dev-box:
 
 ```
 git clone https://github.com/StefanScherer/mac-dev-box
 cd mac-dev-box
-mkdir -p resources
-cp /your/already/downloaded/commandline.dmg resources/command_line_tools_for_osx_mavericks_april_2014.dmg
 vagrant up
 ```
 
