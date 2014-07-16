@@ -1,5 +1,5 @@
 # mac-dev-box
-I want to automate my Mac OS X Mavericks setup, because you never know if [this happens](https://www.youtube.com/watch?v=InwHTCXUQuY).
+I want to automate my Mac OS X Mavericks setup, because you never know if [some jerk does dome crash tests with it](https://www.youtube.com/watch?v=x_ppg054OR0).
 
 So I try my automation script in a Vagrant environment. I'm using just a simple shell provider for these reasons:
 
