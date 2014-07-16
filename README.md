@@ -1,5 +1,5 @@
 # mac-dev-box
-I want to automate my Mac OS X Mavericks setup, because you never know if [some jerk does dome crash tests with it](https://www.youtube.com/watch?v=x_ppg054OR0).
+I want to automate my Mac OS X Mavericks setup, because you never know when [it might crash](https://www.youtube.com/watch?v=x_ppg054OR0).
 
 So I try my automation script in a Vagrant environment. I'm using just a simple shell provider for these reasons:
 
@@ -27,7 +27,7 @@ cd osx-vm
 mkdir -p "iso/OS X Mavericks"
 touch "iso/OS X Mavericks/Install OS X Mavericks.app"
 mkdir -p dmg
-cp /your/prepared/dmg dmg/OSX_InstallESD_10.9_13A603.dmg
+cp /your/prepared/osx.dmg dmg/OSX_InstallESD_10.9_13A603.dmg
 touch dmg/OSX_InstallESD_10.9_13A603.dmg
 make vmware/osx109
 vagrant box add osx109 box/vmware/osx109-nocm.box
@@ -42,13 +42,18 @@ These are my current steps to build the mac-dev-box with the pre-downloaded dmg 
 git clone https://github.com/StefanScherer/mac-dev-box
 cd mac-dev-box
 mkdir -p resources
-xcode-select --install
-cp /your/already/downloaded/commandline-tools.dmg resources/command_line_tools_for_osx_mavericks_april_2014.dmg
+cp /your/already/downloaded/commandline.dmg resources/command_line_tools_for_osx_mavericks_april_2014.dmg
 vagrant up
 ```
 
-## Snapshots
-To speed up the development of such a provision script, I have switched from the vagrant-vbox-snapshot plugin to vagrant-multiprovider-snap
+## Time safer
+To speed up the development of such a provision script, I have switched from the 
+[vagrant-vbox-snapshot](https://github.com/dergachev/vagrant-vbox-snapshot) plugin to [vagrant-multiprovider-snap](https://github.com/scalefactory/vagrant-multiprovider-snap).
+
+```
+vagrant plugin uninstall vagrant-vbox-snapshot
+vagrant plugin install vagrant-multiprovider-snap
+```
 
 So you build a clean machine with this and take a snapshot:
 
