@@ -18,7 +18,7 @@ To build a mac-dev-box on your MBP, you will need the following:
 ## The basebox
 You have to build an OS X Mavericks basebox from [box-cutter/osx-vm](https://github.com/box-cutter/osx-vm).
 
-I already have a prepared dmg file. Please read the box-cutter docs for details.
+I already have a prepared dmg file. Please read the [box-cutter docs](https://github.com/box-cutter/osx-vm/blob/master/README-timsutton.md) for details.
 These were my steps to build the osx109 basebox.
 
 ```
