@@ -6,6 +6,13 @@ So I try my automation script in a Vagrant environment. I'm using just a simple 
 * learn how to automate some steps (like install a .dmg file)
 * have a provision script that could be loaded from HTTP and executed on a real MBP.
 
+But before you ask, I also know [BOXEN](https://boxen.github.com):
+
+    QUIT WORRYING ABOUT YOUR TOOLS.
+    Automate the pain out of your development environment. Boxen installs your dependencies so you can focus on getting things done.
+
+But they also have to do the Xcode Command Line Tool download in a [semi automated way](https://github.com/boxen/boxen-web/commit/b26abd0d681129eba0b5f46ed43110d873d8fdc2).
+
 ## Shopping
 To build a mac-dev-box on your MBP, you will need the following:
 
