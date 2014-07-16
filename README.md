@@ -9,16 +9,16 @@ So I try my automation script in a Vagrant environment. I'm using just a simple 
 ## Shopping
 To build a mac-dev-box on your MBP, you will need the following:
 
-* MBP
-* Packer 0.6.1
-* Vagrant 1.6.3
-* vagrant-vmware-fusion plugin, costs $79 / €59 - worth it
-* VMware Fusion 6, 53,95 €
+* [MacBook Pro](http://store.apple.com/de/buy-mac/macbook-pro) if you haven't one already
+* [Packer 0.6.0](http://www.packer.io/downloads.html)
+* [Vagrant 1.6.3](http://www.vagrantup.com/downloads.html)
+* [VMware Fusion 6](http://www.vmware.com/de/products/fusion/), 54 €
+* [vagrant-vmware-fusion](http://www.vagrantup.com/vmware#buy-now) plugin, 59 €
 
 ## The basebox
-You have to build a OS X Mavericks basebox from [box-cutter/osx-vm](https://github.com/box-cutter/osx-vm).
+You have to build an OS X Mavericks basebox from [box-cutter/osx-vm](https://github.com/box-cutter/osx-vm).
 
-I already had a prepared dmg file. Please read the box-cutter docs for details.
+I already have a prepared dmg file. Please read the box-cutter docs for details.
 These were my steps to build the osx109 basebox.
 
 ```
@@ -34,7 +34,7 @@ vagrant box add osx109 box/vmware/osx109-nocm.box
 ```
 
 ## Xcode Developer Tools
-You have to download the Xcode Command Line Tools manually, because the direct link responds only with HTTP 403 forbidden. So, download Xcode Command Line Tools from [Downloads for Apple Developers](http://developer.apple.com/downloads/) or use the `xcode-select --install` command.
+You have to download the Xcode Command Line Tools manually, because the direct link responds only with HTTP 403 forbidden. So, download Xcode Command Line Tools from [Downloads for Apple Developers](http://developer.apple.com/downloads/) or use the `xcode-select --install` command if you don't have an Apple Developer ID.
 
 These are my current steps to build the mac-dev-box with the pre-downloaded dmg file:
 
