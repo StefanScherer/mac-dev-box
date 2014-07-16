@@ -13,6 +13,12 @@ But before you ask, I also know [BOXEN](https://boxen.github.com):
 
 But they also have to do the Xcode Command Line Tool download in a [semi automated way](https://github.com/boxen/boxen-web/commit/b26abd0d681129eba0b5f46ed43110d873d8fdc2).
 
+Another thing I have learned so far is [caskroom.io](https://github.com/caskroom/)
+
+    "To install, drag this icon..." no more!
+
+Here you find many more packages to install from command line.
+
 ## Shopping
 To build a mac-dev-box on your MBP, you will need the following:
 
