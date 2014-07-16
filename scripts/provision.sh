@@ -47,3 +47,17 @@ if [ $? -gt 0 ]; then
   brew cask install vagrant
 fi
 
+# german timezone
+sudo systemsetup -settimezone Europe/Berlin
+# german language
+sudo languagesetup -langspec de
+# read keyboard layout
+# defaults read /Library/Preferences/com.apple.HIToolbox.plist AppleEnabledInputSources
+
+sudo systemsetup -setsleep Never
+
+# install Google Chrome
+if [ ! -d /opt/homebrew-cask/Caskroom/google-chrome ]; then
+  brew cask install google-chrome
+fi
+
