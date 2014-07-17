@@ -61,3 +61,15 @@ if [ ! -d /opt/homebrew-cask/Caskroom/google-chrome ]; then
   brew cask install google-chrome
 fi
 
+# install Sublime Text 3
+if [ ! -d "/Applications/Sublime Text.app/" ]; then
+  curl -O -L http://c758482.r82.cf2.rackcdn.com/Sublime%20Text%20Build%203059.dmg
+  hdiutil attach "Sublime%20Text%20Build%203059.dmg"
+  pushd "/Volumes/Sublime Text/"
+  mkdir -p "/Applications/Sublime Text.app/"
+  sudo cp -r "Sublime Text.app" "/Applications/Sublime Text.app/"
+  popd
+  sleep 5
+  hdiutil detach /dev/disk1s2
+  rm "Sublime%20Text%20Build%203059.dmg"
+fi
