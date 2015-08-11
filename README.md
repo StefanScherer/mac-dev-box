@@ -1,6 +1,7 @@
 # mac-dev-box
+
 ## Introduction
-I want to automate my Mac OS X Mavericks setup, because you never know when [it might crash](https://www.youtube.com/watch?v=x_ppg054OR0).
+I want to automate my Mac OS X Yosemite setup, because you never know when [it might crash](https://www.youtube.com/watch?v=x_ppg054OR0).
 After buying my MBP I have started a manual [logbook](https://github.com/StefanScherer/logbook/blob/master/Install-MacBookPro.md) what I have installed. But using Vagrant for a long time I know there must be a better way.
 
 So I try my automation script in a Vagrant environment. I'm using just a simple shell provider for these reasons:
@@ -27,47 +28,45 @@ Here you find many more packages to install from command line.
 To build a mac-dev-box on your MBP, you will need the following:
 
 * [MacBook Pro](http://store.apple.com/de/buy-mac/macbook-pro) if you haven't one already
-* [Packer 0.6.0](http://www.packer.io/downloads.html)
-* [Vagrant 1.6.3](http://www.vagrantup.com/downloads.html)
-* [VMware Fusion 6](http://www.vmware.com/de/products/fusion/), 54 €
+* [Packer 0.8.5](http://www.packer.io/downloads.html)
+* [Vagrant 1.7.4](http://www.vagrantup.com/downloads.html)
+* [VMware Fusion 7.1.2](http://www.vmware.com/de/products/fusion/), 54 €
 * [vagrant-vmware-fusion](http://www.vagrantup.com/vmware#buy-now) plugin, 59 €
 
 ## The basebox
-You have to build an OS X Mavericks basebox from [box-cutter/osx-vm](https://github.com/box-cutter/osx-vm).
+You have to build an OS X Yosemite basebox from [boxcutter/osx](https://github.com/boxcutter/osx).
 
-I already have a prepared dmg file. Please read the [box-cutter docs](https://github.com/box-cutter/osx-vm/blob/master/README-timsutton.md) for details.
-These were my steps to build the osx109 basebox.
+You will need a downloaded `InstallESD.dmg` file with eg. OS X 10.10.4. Please read the [boxcutter docs](https://github.com/boxcutter/osx/blob/master/README-timsutton.md) for details.
+These were my steps to build the osx1010-desktop basebox.
 
 ```
-git clone https://github.com/box-cutter/osx-vm
-cd osx-vm
-mkdir -p "iso/OS X Mavericks"
-touch "iso/OS X Mavericks/Install OS X Mavericks.app"
-mkdir -p dmg
-cp /your/prepared/osx.dmg dmg/OSX_InstallESD_10.9_13A603.dmg
-touch dmg/OSX_InstallESD_10.9_13A603.dmg
-make vmware/osx109
-vagrant box add osx109 box/vmware/osx109-nocm.box
+git clone https://github.com/boxcutter/osx
+cd osx
+mkdir -p "iso/OS X Yosemite"
+cp ../InstallESD.dmg "iso/OS X Yosemite/InstallESD.dmg"
+sed -i.bak -e 's/Install\\ OS\\ X\\ Yosemite\.app/InstallESD.dmg/' Makefile
+make vmware/osx1010-desktop
+vagrant box add osx1010-desktop box/vmware/osx1010-desktop-nocm-1.0.1.box
 ```
 
-## Xcode Command Line Tools
-The provision script takes care to install the Xcode Command Line Tools in an unattended way.
-Normally, you have to download the Xcode Command Line Tools manually. Your normally download Xcode Command Line Tools from [Downloads for Apple Developers](http://developer.apple.com/downloads/) or use the `xcode-select --install` command if you don't have an Apple Developer ID. But you only need this information to get a different version.
+## Vagrant up
 
 These are my current steps to build the mac-dev-box:
 
 ```
 git clone https://github.com/StefanScherer/mac-dev-box
 cd mac-dev-box
-vagrant up
+vagrant up --provider vmware_fusion
 ```
+
+### Where is Retina?
+
+The `Vagrantfile` sets an option to start the VM with Retina (HiDPI). The provision script `scripts/enable-hidpi.sh` enables HiDPI inside the VM. At the moment you have to logout and login again to make this change work. Then open the **System Preferences**, set the **display** to **"scaled"** using the HiDPI setting. Enjoy!
 
 ## Time saver
-To speed up the development of such a provision script, I have switched from the 
-[vagrant-vbox-snapshot](https://github.com/dergachev/vagrant-vbox-snapshot) plugin to [vagrant-multiprovider-snap](https://github.com/scalefactory/vagrant-multiprovider-snap).
+To speed up the development of such a provision script, I always use the [vagrant-multiprovider-snap](https://github.com/scalefactory/vagrant-multiprovider-snap) plugin.
 
 ```
-vagrant plugin uninstall vagrant-vbox-snapshot
 vagrant plugin install vagrant-multiprovider-snap
 ```
 
