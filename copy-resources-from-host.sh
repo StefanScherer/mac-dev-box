@@ -1,4 +1,5 @@
 #!/bin/bash
+echo "Use at your own risk! Do not use SSH keys with passphrase!"
 mkdir -p resources/
 mkdir -p resources/.ssh/
 echo "Copy SSH keys"
