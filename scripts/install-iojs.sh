@@ -10,3 +10,9 @@ source ~/.bash_profile
 
 nvm install iojs
 nvm alias default iojs
+
+npm install -g flaschenpost
+npm install -g forany
+npm install -g grunt-cli
+npm install -g grunt-init
+npm install -g reqd
