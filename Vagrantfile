@@ -17,6 +17,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.provision "shell", path: "scripts/install-chrome.sh", privileged: false
   config.vm.provision "shell", path: "scripts/install-iojs.sh", privileged: false
   config.vm.provision "shell", path: "scripts/install-atom.sh", privileged: false
+  config.vm.provision "shell", path: "scripts/install-cucumber.sh", privileged: false
 
   config.vm.provision "shell", path: "scripts/install-virtualbox.sh", privileged: false
   config.vm.provision "shell", path: "scripts/install-docker.sh", privileged: false
