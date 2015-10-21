@@ -4,7 +4,7 @@
 VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
-  config.vm.box = "osx1010-desktop"
+  config.vm.box = "osx1011-desktop"
   config.ssh.forward_agent = true
   config.ssh.insert_key = false
 
@@ -15,7 +15,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.vm.provision "shell", path: "scripts/install-resources.sh", privileged: false
   config.vm.provision "shell", path: "scripts/install-chrome.sh", privileged: false
-  config.vm.provision "shell", path: "scripts/install-iojs.sh", privileged: false
+  config.vm.provision "shell", path: "scripts/install-node.sh", privileged: false
   config.vm.provision "shell", path: "scripts/install-atom.sh", privileged: false
   config.vm.provision "shell", path: "scripts/install-cucumber.sh", privileged: false
 

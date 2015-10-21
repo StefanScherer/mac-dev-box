@@ -8,8 +8,8 @@ echo 'export NVM_DIR=~/.nvm
 source $(brew --prefix nvm)/nvm.sh' >> ~/.bash_profile
 source ~/.bash_profile
 
-nvm install iojs
-nvm alias default iojs
+nvm install 4.2.1
+nvm alias default 4.2.1
 
 npm install -g flaschenpost
 npm install -g forany
