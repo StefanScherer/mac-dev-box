@@ -4,7 +4,7 @@
 VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
-  config.vm.box = "osx1012-desktop"
+  config.vm.box = "osx1013-desktop"
   config.ssh.forward_agent = true
   config.ssh.insert_key = false
 
